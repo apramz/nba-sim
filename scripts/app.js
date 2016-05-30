@@ -32,6 +32,10 @@ var select = function(){
 		shot_a_prob = 0.50;
 		shot_b_prob = 0.45;
 	}
+	else if (this.innerHTML === 'Klay Thompson') {
+		shot_a_prob = 0.40;
+		shot_b_prob = 0.43;
+	}
 }
 
 //Shot Processing Function: Takes shot type and assigns values for this type of shot.

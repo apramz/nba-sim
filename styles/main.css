@@ -9,9 +9,37 @@ body {
 	display: inline-block;
 }
 
+#dropbtn {
+	background-color: #0BB795;
+	color: white;
+	padding: 16px;
+	font-size: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+#dropbtn:hover, #dropbtn:focus {
+	background-color: #07A284;
+}
+
 .dropdown-content {
 	display: none;
 	position: absolute;
+	background-color: #f9f9f9;
+	width: 100%;
+	overflow: auto;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px;
+	text-decoration: none;
+	display: block;
+	font-size: 12px;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
 }
 
 .show {
