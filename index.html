@@ -3,11 +3,19 @@
 	<head>
 		<title>NBA Shot Simulator</title>
 		<meta charset="utf-8">
+		<link rel="stylesheet" href="styles/main.css">
 	</head>
 	<body>
-		<button class="player">Steph Curry</button>
+		<div class="dropdown">
+			<button id="dropbtn">Select Player</button>
+			<div id="myDropdown" class="dropdown-content">
+				<a href="#" class="player">Steph Curry</a>
+				<a href="#" class="player">Klay Thompson</a>
+			</div>
+		</div>
+		<!--<button class="player">Steph Curry</button>-->
 		<br>
-		<button class="shot_type inactive">Midrange Jumper</button>
+		<button class="shot_type">Midrange Jumper</button>
 		<button class="shot_type">Three Pointer</button>
 		<div id="result"></div>
 		<script src="scripts/app.js"></script>

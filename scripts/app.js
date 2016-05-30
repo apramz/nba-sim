@@ -7,6 +7,25 @@ var shot_b_prob; //Three Pointer
 var shots = 0;
 var makes = 0;
 var misses = 0;
+
+//Player Selection Dropdown Menu
+var toggle = function() {
+	document.getElementById('myDropdown').classList.toggle('show');
+}
+document.getElementById('dropbtn').addEventListener('click', toggle, false);
+window.onclick = function(event) {
+	if (!event.target.matches('#dropbtn')) {
+		var dropdowns = document.getElementsByClassName('dropdown-content');
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains('show')) {
+				openDropdown.classList.remove('show');
+			}
+		}
+	}
+}
+
 //Player Selection Function
 var select = function(){
 	if (this.innerHTML === 'Steph Curry') {
