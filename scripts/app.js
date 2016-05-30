@@ -7,6 +7,14 @@ var shot_b_prob; //Three Pointer
 var shots = 0;
 var makes = 0;
 var misses = 0;
+var player;
+
+//Div Clearing Function
+var clear = function(content_area) {
+	while (content_area.hasChildNodes()) {
+		content_area.removeChild(content_area.firstChild);
+	}
+}
 
 //Player Selection Dropdown Menu
 var toggle = function() {
@@ -26,16 +34,30 @@ window.onclick = function(event) {
 	}
 }
 
+//Player Stat Display Function
+var display = function() {
+	var stats=document.createTextNode(player+' shoots '+shot_a_prob*100 +'% on Midrange Jumpers and '+shot_b_prob*100+'% on Three Pointers.');
+	var stats_area = document.getElementById('stats');
+	clear(stats_area);
+	stats_area.appendChild(stats);
+}
+
 //Player Selection Function
 var select = function(){
 	if (this.innerHTML === 'Steph Curry') {
 		shot_a_prob = 0.50;
 		shot_b_prob = 0.45;
+		player = 'Steph Curry';
+		display();
 	}
 	else if (this.innerHTML === 'Klay Thompson') {
 		shot_a_prob = 0.40;
 		shot_b_prob = 0.43;
+		player = 'Klay Thompson';
+		display();
 	}
+	var result_area = document.getElementById('result');
+	clear(result_area);
 }
 
 //Shot Processing Function: Takes shot type and assigns values for this type of shot.
@@ -71,10 +93,7 @@ var outcome = function() {
 	var result_txt = document.createTextNode(shot_sim());
 	var score = document.createTextNode(" You've got: " + user_pts + " points on " + shots + " shots.")
 	var result_area = document.getElementById('result');
-
-	while (result_area.hasChildNodes()) {
-		result_area.removeChild(result_area.firstChild);
-	}
+	clear(result_area);
 	result_area.appendChild(result_txt);
 	result_area.appendChild(score);
 }
