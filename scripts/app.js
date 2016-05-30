@@ -69,7 +69,7 @@ var outcome = function() {
 	shot_proc(this.innerHTML);
 
 	var result_txt = document.createTextNode(shot_sim());
-	var score = document.createTextNode(" You've got: " + user_pts + " points.")
+	var score = document.createTextNode(" You've got: " + user_pts + " points on " + shots + " shots.")
 	var result_area = document.getElementById('result');
 
 	while (result_area.hasChildNodes()) {
