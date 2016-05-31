@@ -1,6 +1,7 @@
 /***BODY***/
 body {
 	font-family: 'Roboto';
+	font-weight: 400;
 	font-size: 12px;
 }
 
@@ -10,7 +11,7 @@ body {
 	display: inline-block;
 }
 
-#dropbtn {
+#userDropBtn, #cpuDropBtn {
 	background-color: #0BB795;
 	color: white;
 	padding: 16px;
@@ -19,7 +20,7 @@ body {
 	cursor: pointer;
 }
 
-#dropbtn:hover, #dropbtn:focus {
+#userDropBtn:hover, #userDropBtn:focus, #cpuDropBtn:hover, #cpuDropBtn:focus {
 	background-color: #07A284;
 }
 

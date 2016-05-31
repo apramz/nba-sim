@@ -4,20 +4,31 @@
 		<title>NBA Shot Simulator</title>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="styles/main.css">
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,100,300' rel='stylesheet' type='text/css'> 
 	</head>
 	<body>
 		<div class="dropdown">
-			<button id="dropbtn">Select Player</button>
-			<div id="myDropdown" class="dropdown-content">
+			<button id="userDropBtn">Select Player</button>
+			<div id="userDropdown" class="dropdown-content">
 				<a href="#" class="player">Steph Curry</a>
 				<a href="#" class="player">Klay Thompson</a>
 			</div>
 		</div>
-		<div id="stats"></div>
+		<div id="user_stats"></div>
 		<br>
 		<button class="shot_type">Midrange Jumper</button>
 		<button class="shot_type">Three Pointer</button>
-		<div id="result"></div>
+		<div id="user_result"></div>
+
+		<div class="dropdown">
+			<button id="cpuDropBtn">Select CPU</button>
+			<div id='cpuDropdown' class='dropdown-content'>
+				<a href='#' class='player'>LeBron James</a>
+				<a href='#' class='player'>Kyrie Irving</a>
+			</div>
+		</div>
+		<div id="cpu_stats"></div>
+		<div id="cpu_result"></div>
 		<script src="scripts/app.js"></script>
 	</body>
 </htmL>
