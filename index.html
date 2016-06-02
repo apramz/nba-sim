@@ -8,28 +8,44 @@
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,100,300' rel='stylesheet' type='text/css'> 
 	</head>
 	<body>
-		<div class="dropdown">
-			<button id="userDropBtn">Select Player</button>
-			<div id="userDropdown" class="dropdown-content">
-				<a href="#" class="player">Steph Curry</a>
-				<a href="#" class="player">Klay Thompson</a>
+		<div class="header">
+			<div class = 'headercontent'>
+				<img src="images/ballfavi.png" />
+				<h1>SHOOTOUT<br><span style='color: #2980b9'>SIMULATOR</span></h1>
+				<div id='redcolorstrip'></div>
+				<div id='bluecolorstrip'></div>
+				<div id='headerblurb'>
+					<h2>Shoot like an All-Star!</h2>
+					<h3>Choose your favorite player and challenge an NBA great to a good ol’ fashioned shootout.</h3>
+				</div>
 			</div>
 		</div>
-		<div id="user_stats"></div>
-		<br>
-		<button class="shot_type">Midrange Jumper</button>
-		<button class="shot_type">Three Pointer</button>
-		<div id="user_result"></div>
-		<br><br><br><br>
-		<div class="dropdown">
-			<button id="cpuDropBtn">Select CPU</button>
-			<div id='cpuDropdown' class='dropdown-content'>
-				<a href='#' class='player'>LeBron James</a>
-				<a href='#' class='player'>Kyrie Irving</a>
+		<div class='container'>
+			<div class='user_cpu_dropdowns'>
+				<div class="dropdown">
+					<button id="userDropBtn">CHOOSE PLAYER<img src='images/w_arrow.png'/></button>
+					<div id="userDropdown" class="dropdown-content">
+						<a href="#" class="player">Steph Curry</a>
+						<a href="#" class="player">Klay Thompson</a>
+					</div>
+				</div>
+				<div id="user_stats"></div>
+				<div id="user_result"></div>
+				<div class="dropdown">
+					<button id="cpuDropBtn">CHOOSE CPU<img src='images/w_arrow.png'/></button>
+					<div id='cpuDropdown' class='dropdown-content'>
+						<a href='#' class='player'>LeBron James</a>
+						<a href='#' class='player'>Kyrie Irving</a>
+					</div>
+				</div>
+			</div>
+			<div id="cpu_stats"></div>
+			<div id="cpu_result"></div>
+			<div class='shot_selection'>
+				<button class="shot_type">Midrange Jumper</button>
+				<button class="shot_type">Three Pointer</button>
 			</div>
 		</div>
-		<div id="cpu_stats"></div>
-		<div id="cpu_result"></div>
 		<script src="scripts/app.js"></script>
 	</body>
 </htmL>

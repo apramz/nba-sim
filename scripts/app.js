@@ -31,7 +31,7 @@ document.getElementById('userDropBtn').addEventListener('click', function() {tog
 document.getElementById('cpuDropBtn').addEventListener('click', function() {toggle('cpuDropdown')}, false);
 
 window.onclick = function(event) {
-	if ((!event.target.matches('#userDropBtn')) && (!event.target.matches('#cpuDropBtn'))) {
+	if ((!event.target.matches('#userDropBtn')) && (!event.target.matches('#cpuDropBtn')) && (!event.target.matches('#cpuDropBtn img')) && (!event.target.matches('#userDropBtn img'))) {
 		var dropdowns = document.getElementsByClassName('dropdown-content');
 		var i;
 		for (i = 0; i < dropdowns.length; i++) {
