@@ -3,7 +3,8 @@ body {
 	font-family: 'Roboto';
 	font-weight: 400;
 	font-size: 12px;
-	margin: 20px;
+	margin: 35px;
+	margin-top: 10px;
 }
 
 /***HEADER***/
@@ -80,7 +81,7 @@ h3 {
 }
 
 /***DROPDOWN MENU***/
-.dropdown {
+.user_cpu_dropdowns {
 	position: relative;
 	float: left;
 }
@@ -94,11 +95,12 @@ h3 {
 
 #userDropBtn {
 	background-color: #2980b9;
+	width: 250px;
 }
 
 #cpuDropBtn {
 	background-color: #F30000;
-	width: 207px;
+	width: 250px;
 }
 
 #userDropBtn, #cpuDropBtn {
@@ -143,6 +145,128 @@ h3 {
 }
 
 .shot_selection {
-	float: right;
 
 }
+
+/***STATS***/
+
+#user_stats {
+	width: 248px;
+	border: 1px solid #2980b9;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+#user_stats p {
+	font-weight: 300;
+}
+
+.header_row {
+	display: inline-block;
+	vertical-align: middle;
+	border: 1px solid #2980b9;
+}
+
+.icon img {
+	height: 40px;
+	width: 40px;
+	vertical-align: middle;
+}
+
+.icon, .header_text {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.header_text {
+	width: 203px;
+	font-size: 19px;
+	font-weight: 300;
+	font-style: italic;
+}
+
+.header_text p {
+	margin: 0 auto;
+	padding-left: 5px;
+}
+
+.player_pic img {
+	height: 51px;
+	width: 70px;
+}
+
+.player_bio {
+	vertical-align: middle;
+	border: 1px solid #2980b9;
+}
+
+.player_pic, .bio_text {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.context, .season {
+	height: 28px;
+	width: 171px;
+	vertical-align: middle;
+}
+
+.context {
+	border-bottom: 2px solid #2980b9;
+	border-left: 2px solid #2980b9;
+}
+
+.season {
+	border-left: 2px solid #2980b9;
+}
+
+.bio_text p {
+	margin: 0;
+	vertical-align: middle;
+	position: relative;
+	top: 9px;
+	text-align: center;
+}
+
+.stat_details {
+	border: 1px solid #2980b9;
+}
+
+.shot_name, .shot_pct {
+	display: inline-block;
+}
+
+.shot_name {
+	width: 180px;
+	padding-left: 20px;
+	border-right: 2px solid #2980b9;
+}
+
+.shot_pct {
+	width: 40px;
+	text-align: center;
+}
+
+.shot_pct p {
+	font-weight: 600;	
+}
+
+#cpu_stats {
+	width: 248px;
+	border: 1px solid #F30000;
+	margin-top: 5px;
+	margin-bottom: 15px;
+}
+
+#cpu_stats p {
+	font-weight: 300;
+}
+
+.header_row,.cpu_red,  {
+	border-color: #F30000
+}
+
+.cpu_red {
+	border-color: #F30000;	
+}
+
