@@ -133,19 +133,56 @@ var select = function(){
 		var element = this;
 		user_or_cpu_display(element);
 	}
+	else if (this.innerHTML === 'Kevin Durant') {
+		player = this.innerHTML;
+		context = 'Small Forward - OKC #35';
+		season = '2015-2016 Season';
+		img_src = 'images/kdurant.png';		
+		shot_a_pct = 0.45;
+		shot_b_pct = 0.39;
+		cpu_shot_a_prob = 0.55;
+		cpu_shot_b_prob = 0.45;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'Russell Westbrook') {
+		player = this.innerHTML;
+		context = 'Point Guard - OKC #0';
+		season = '2015-2016 Season';
+		img_src = 'images/rwestbrook.png';		
+		shot_a_pct = 0.41;
+		shot_b_pct = 0.32;
+		cpu_shot_a_prob = 0.55;
+		cpu_shot_b_prob = 0.45;
+		var element = this;
+		user_or_cpu_display(element);
+	}
 	var user_result_area = document.getElementById('user_result');
 	clear(user_result_area);
 }
 
 //Shot Processing Function: Takes shot type and assigns values for this type of shot.
-var shot_process = function(type, shot_a_pct, shot_b_pct) {
-	if (type === 'Midrange Jumper') {
-		shot_value = 2;
-		shot_probability = shot_a_pct;
+var shot_process = function(element, type, shot_a_pct, shot_b_pct) {
+	if (element != null) {
+		if (element.classList.contains('shot_a')) {
+			shot_value = 2;
+			shot_probability = shot_a_pct;
+		}
+		else if (element.classList.contains('shot_b')) {
+			shot_value = 3;
+			shot_probability = shot_b_pct;
+		}
 	}
-	else if (type === 'Three Pointer') {
-		shot_value = 3;
-		shot_probability = shot_b_pct;
+	else {
+		if (type === 'Midrange Jumper') {
+			shot_value = 2;
+			shot_probability = shot_a_pct;
+			console.log(type);
+		}
+		else if (type === 'Three Pointer') {
+			shot_value = 3;
+			shot_probability = shot_b_pct;
+		}
 	}
 }
 //Shot Simulation Function: Takes shot values and simulates a given shot to return new pt total and string.
@@ -190,7 +227,8 @@ var cpu_shot_select = function() {
 
 //CPU Shot Outcome Function
 var cpu_shot_outcome = function() {
-	shot_process(cpu_shot_select(), cpu_shot_a_pct, cpu_shot_b_pct);
+	var element = null;
+	shot_process(element, cpu_shot_select(), cpu_shot_a_pct, cpu_shot_b_pct);
 	var result_txt = document.createTextNode(shot_sim('cpu'));
 	var cpu_score = document.createTextNode(' '+cpu_player + ' has: ' + cpu_pts + ' points on ' + cpu_shots + ' shots.');
 	var cpu_result_area = document.getElementById('cpu_result');
@@ -201,8 +239,8 @@ var cpu_shot_outcome = function() {
 
 //Outcome Function: Runs shot_process, then shot_sim, then updates results in div below.
 var outcome = function() {
-	shot_process(this.innerHTML, user_shot_a_pct, user_shot_b_pct);
-
+	var element = this;
+	shot_process(element, this.innerHTML, user_shot_a_pct, user_shot_b_pct);
 	var result_txt = document.createTextNode(shot_sim('user'));
 	var user_score = document.createTextNode(" You've got: " + user_pts + " points on " + user_shots + " shots.")
 	var user_result_area = document.getElementById('user_result');

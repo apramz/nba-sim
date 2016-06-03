@@ -184,7 +184,6 @@ h3 {
 	width: 203px;
 	font-size: 19px;
 	font-weight: 300;
-	font-style: italic;
 }
 
 .header_text p {
@@ -230,6 +229,10 @@ h3 {
 	text-align: center;
 }
 
+#user_context, #user_season, #cpu_context, #cpu_context {
+	z-index: -1;	
+}
+
 .stat_details {
 	border: 1px solid #2980b9;
 }
@@ -243,6 +246,11 @@ h3 {
 	padding-left: 20px;
 	border-right: 2px solid #2980b9;
 	font-size: 13px;
+}
+
+.shot_name p, .shot_pct p {
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 .shot_pct {
@@ -269,3 +277,11 @@ h3 {
 	border-color: #F30000;	
 }
 
+/***SHOT SELECTION***/
+.shot_type {
+	cursor: pointer;
+}
+
+.shot_type:hover {
+	opacity: 0.7;
+}
