@@ -5,6 +5,7 @@ body {
 	font-size: 12px;
 	margin: 35px;
 	margin-top: 10px;
+	margin-left: 45px;
 }
 
 /***HEADER***/
@@ -84,6 +85,7 @@ h3 {
 .user_cpu_dropdowns {
 	position: relative;
 	float: left;
+	margin-left: 10px;
 }
 
 .dropdown img {
@@ -240,15 +242,12 @@ h3 {
 	width: 180px;
 	padding-left: 20px;
 	border-right: 2px solid #2980b9;
+	font-size: 13px;
 }
 
 .shot_pct {
 	width: 40px;
 	text-align: center;
-}
-
-.shot_pct p {
-	font-weight: 600;	
 }
 
 #cpu_stats {

@@ -60,56 +60,78 @@ var img_display = function(img_src, img_area_id) {
 	img_area.appendChild(img);
 }
 
+//User or CPU Display & Shot Pct Setting Function
+
+var user_or_cpu_display = function(element) {
+	if (element.classList.contains('user')) {
+		display(player, 'user_player');
+		display(context, 'user_context');
+		display(season, 'user_season');
+		img_display(img_src, 'user_img');
+		display(shot_a_pct*100+'%', 'user_shot_a_pct');
+		display(shot_b_pct*100+'%', 'user_shot_b_pct');
+		user_shot_a_pct = shot_a_pct;
+		user_shot_b_pct = shot_b_pct;
+		user_player = player;
+	}
+	else if (element.classList.contains('cpu')) {
+		display(player, 'cpu_player');
+		display(context, 'cpu_context');
+		display(season, 'cpu_season');
+		img_display(img_src, 'cpu_img');
+		display(shot_a_pct*100+'%', 'cpu_shot_a_pct');
+		display(shot_b_pct*100+'%', 'cpu_shot_b_pct');
+		cpu_shot_a_pct = shot_a_pct;
+		cpu_shot_b_pct = shot_b_pct;
+		cpu_player = player;
+	}
+}
+
 //Player Selection Function
 var select = function(){
 	if (this.innerHTML === 'Steph Curry') {
-		user_player = this.innerHTML;
-		user_context = 'Point Guard - GSW #30';
-		user_season = '2015-2016 Season';
-		user_shot_a_pct = 0.50;
-		user_shot_b_pct = 0.45;		
-		display(user_player, 'user_player');
-		display(user_context, 'user_context');
-		display(user_season, 'user_season');
-		img_display('images/scurry.png', 'user_img');
-		display(user_shot_a_pct*100+'%', 'user_shot_a_pct');
-		display(user_shot_b_pct*100+'%', 'user_shot_b_pct');
+		player = this.innerHTML;
+		context = 'Point Guard - GSW #30';
+		season = '2015-2016 Season';
+		img_src = 'images/scurry.png';
+		shot_a_pct = 0.50;
+		shot_b_pct = 0.45;
+		var element = this;
+		user_or_cpu_display(element);
 	}
 	else if (this.innerHTML === 'Klay Thompson') {
-		user_player = this.innerHTML;
-		user_context = 'Shooting Guard - GSW #11';
-		user_season	= '2015-2016 Season';
-		user_shot_a_pct = 0.40;
-		user_shot_b_pct = 0.43;
-		display(user_player, 'user_player');
-		display(user_context, 'user_context');
-		display(user_season, 'user_season');
-		img_display('images/ljames.png', 'user_img');
-		display(user_shot_a_pct*100+'%', 'user_shot_a_pct');
-		display(user_shot_b_pct*100+'%', 'user_shot_b_pct');
+		player = this.innerHTML;
+		context = 'Shooting Guard - GSW #11';
+		season	= '2015-2016 Season';
+		img_src = 'images/kthompson.png';
+		shot_a_pct = 0.40;
+		shot_b_pct = 0.43;
+		var element = this;
+		user_or_cpu_display(element);
 	}
 	else if (this.innerHTML === 'LeBron James') {
-		cpu_player = this.innerHTML;		
-		cpu_context = 'Small Forward - CLE #23';
-		cpu_season = '2015-2016 Season';
-		cpu_shot_a_pct = 0.54;
-		cpu_shot_b_pct = 0.30;
+		player = this.innerHTML;		
+		context = 'Small Forward - CLE #23';
+		season = '2015-2016 Season';
+		img_src = 'images/ljames.png';
+		shot_a_pct = 0.54;
+		shot_b_pct = 0.30;
 		cpu_shot_a_prob = 0.75;
 		cpu_shot_b_prob = 0.25;
-		display(cpu_player, 'cpu_player');
-		display(cpu_context, 'cpu_context');
-		display(cpu_season, 'cpu_season');
-		img_display('images/ljames.png', 'cpu_img');
-		display(cpu_shot_a_pct*100+'%', 'cpu_shot_a_pct');
-		display(cpu_shot_b_pct*100+'%', 'cpu_shot_b_pct');
+		var element = this;
+		user_or_cpu_display(element);
 	}
 	else if (this.innerHTML === 'Kyrie Irving') {
-		cpu_shot_a_pct = 0.43;
-		cpu_shot_b_pct = 0.38;
+		player = this.innerHTML;
+		context = 'Point Guard - CLE #2';
+		season = '2015-2016 Season';
+		img_src = 'images/kirving.png';		
+		shot_a_pct = 0.43;
+		shot_b_pct = 0.38;
 		cpu_shot_a_prob = 0.65;
 		cpu_shot_b_prob = 0.35;
-		cpu_player = this.innerHTML;
-		display(cpu_player, 'cpu_stats', cpu_shot_a_pct, cpu_shot_b_pct);
+		var element = this;
+		user_or_cpu_display(element);
 	}
 	var user_result_area = document.getElementById('user_result');
 	clear(user_result_area);
