@@ -152,8 +152,20 @@ var select = function(){
 		img_src = 'images/rwestbrook.png';		
 		shot_a_pct = 0.41;
 		shot_b_pct = 0.32;
-		cpu_shot_a_prob = 0.55;
-		cpu_shot_b_prob = 0.45;
+		cpu_shot_a_prob = 0.70;
+		cpu_shot_b_prob = 0.30;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'Paul George') {
+		player = this.innerHTML;
+		context = 'Small Forward - IND #13';
+		season = '2015-2016 Season';
+		img_src = 'images/pgeorge.png';		
+		shot_a_pct = 0.44;
+		shot_b_pct = 0.33;
+		cpu_shot_a_prob = 0.60;
+		cpu_shot_b_prob = 0.40;
 		var element = this;
 		user_or_cpu_display(element);
 	}
@@ -177,7 +189,6 @@ var shot_process = function(element, type, shot_a_pct, shot_b_pct) {
 		if (type === 'Midrange Jumper') {
 			shot_value = 2;
 			shot_probability = shot_a_pct;
-			console.log(type);
 		}
 		else if (type === 'Three Pointer') {
 			shot_value = 3;

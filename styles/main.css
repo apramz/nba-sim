@@ -229,7 +229,7 @@ h3 {
 	text-align: center;
 }
 
-#user_context, #user_season, #cpu_context, #cpu_context {
+#user_context, #user_season, #cpu_context, #cpu_season {
 	z-index: -1;	
 }
 
@@ -278,10 +278,16 @@ h3 {
 }
 
 /***SHOT SELECTION***/
+.shot_selection {
+	text-align: center;
+}
+
 .shot_type {
 	cursor: pointer;
 }
 
 .shot_type:hover {
-	opacity: 0.7;
+	-webkit-filter:saturate(1.38);
+	-webkit-transition: filter 0.75s;
+	transition-timing-function: ease-in-out;
 }
