@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="icon" href="images/ballfavi.png">
 		<link rel="stylesheet" href="styles/main.css">
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,600,100,300' rel='stylesheet' type='text/css'> 
+
 	</head>
 	<body>
 		<div class="header">
@@ -20,15 +20,44 @@
 				</div>
 			</div>
 		</div>
-		<div class='container'>
-			<div class='user_cpu_dropdowns'>
+		<div class='content'>
+
+			<div class='results'>
+				<div id="user_result">
+					<div class='points'>Points: <p id='user_pts'></p></div>
+				</div>	
+				<div id="cpu_result">
+					<div class='points'><p id='cpu_pts'></p></div>
+				</div>	
+			</div>
+			<div class='shot_selection'>
+				<div class='section_header'><p>SHOT SELECTION<p></div>
+					<div class='buttons'>
+						<div class='button'><img class='shot_type shot_a disabled' src='images/midrange_jumper_btn_orng.png' /><p>Midrange Jumper</p></div>
+						<div class='button'><img class='shot_type shot_b disabled' src='images/three_pointer_btn_orng.png' /><p>Three Pointer</p></div>
+					</div>
+			</div>			
+		</div>
+		</div>	
+		<div class='user_cpu_dropdowns'>
 				<div class="dropdown">
 					<button id="userDropBtn">CHOOSE PLAYER<img src='images/w_arrow.png'/></button>
 					<div id="userDropdown" class="dropdown-content">
-						<a href="#" class="player user">Steph Curry</a>
+						<a href="#" class="player user">Carmelo Anthony</a>
+						<a href="#" class="player user">Chris Paul</a>
+						<a href="#" class="player user">Dirk Nowitzki</a>
+						<a href="#" class="player user">Dwyane Wade</a>
+						<a href="#" class="player user">James Harden</a>
+						<a href="#" class="player user">John Wall</a>
+						<a href="#" class="player user">Kobe Bryant</a>
+						<a href="#" class="player user">Kevin Durant</a>
+						<a href="#" class="player user">Kyrie Irving</a>
+						<a href="#" class="player user">Kawhi Leonard</a>
 						<a href="#" class="player user">Klay Thompson</a>
 						<a href='#' class='player user'>LeBron James</a>
-						<a href='#' class='player user'>Kevin Durant</a>
+						<a href="#" class="player user">Paul George</a>
+						<a href="#" class="player user">Russell Westbrook</a>
+						<a href='#' class='player user'>Steph Curry</a>
 					</div>
 				</div>
 				<div id="user_stats">
@@ -59,15 +88,26 @@
 				<div class="dropdown">
 					<button id="cpuDropBtn">CHOOSE CPU<img src='images/w_arrow.png'/></button>
 					<div id='cpuDropdown' class='dropdown-content'>
+						<a href="#" class="player cpu">Carmelo Anthony</a>
+						<a href="#" class="player cpu">Chris Paul</a>
+						<a href="#" class="player cpu">Dirk Nowitzki</a>
+						<a href="#" class="player cpu">Dwyane Wade</a>
+						<a href="#" class="player cpu">James Harden</a>
+						<a href="#" class="player cpu">John Wall</a>
+						<a href="#" class="player cpu">Kobe Bryant</a>
+						<a href="#" class="player cpu">Kevin Durant</a>
+						<a href="#" class="player cpu">Kyrie Irving</a>
+						<a href="#" class="player cpu">Kawhi Leonard</a>
+						<a href="#" class="player cpu">Klay Thompson</a>
 						<a href='#' class='player cpu'>LeBron James</a>
-						<a href='#' class='player cpu'>Kyrie Irving</a>
-						<a href='#' class='player cpu'>Russell Westbrook</a>
-						<a href='#' class='player cpu'>Paul George</a>
+						<a href="#" class="player cpu">Paul George</a>
+						<a href="#" class="player cpu">Russell Westbrook</a>
+						<a href='#' class='player cpu'>Steph Curry</a>
 					</div>
 				</div>
 				<div id="cpu_stats">
 					<div class='header_row cpu_red'>
-						<div class='icon'><img src='images/cpu_user_icon.png' /></div>
+						<div class='icon'><img src='images/cpu_icon.png' /></div>
 						<div class='header_text'><p id='cpu_player'></p></div>
 					</div>
 					<div class='player_bio cpu_red'>
@@ -90,20 +130,8 @@
 						<div class='shot_pct cpu_red'><p id='cpu_shot_b_pct'></p></div>
 					</div>
 				</div>
-			</div>
-			<div class='results'>
-				<div id="user_result">
-					<div id='user_pts'></div>
-				</div>	
-				<div id="cpu_result">
-					<div id='cpu_pts'></div>
-				</div>	
-			</div>	
-			<div class='shot_selection'>
-				<img class='shot_type shot_a' src='images/midrange_jumper_btn_orng.png' />
-				<img class='shot_type shot_b' src='images/three_pointer_btn_orng.png' />
-			</div>			
 		</div>
+		<div style='clear:both'></div>
 		<script src="scripts/app.js"></script>
 	</body>
 </htmL>

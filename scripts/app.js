@@ -87,49 +87,117 @@ var user_or_cpu_display = function(element) {
 	}
 }
 
+//Enable or Disable Function
+
+var able = function() {
+	if (user_player != undefined && cpu_player != undefined) {
+		var buttons = document.getElementsByClassName('disabled');
+		buttons[0].className=buttons[0].className.replace( /(?:^|\s)disabled(?!\S)/g , '' );
+		buttons[0].className=buttons[0].className.replace( /(?:^|\s)disabled(?!\S)/g , '' );
+	}
+}
+
+//Reset Game Function
+var reset_game = function() {
+	user_pts = 0;
+	cpu_pts = 0;
+	shot_probability = 0;
+	user_shots = 0;
+	user_makes = 0;
+	user_misses =0;
+	cpu_shots =0;
+	cpu_makes =0;
+	cpu_misses =0;
+	display(user_pts, 'user_pts');
+	display(cpu_pts, 'cpu_pts');
+}
+
 //Player Selection Function
 var select = function(){
-	if (this.innerHTML === 'Steph Curry') {
+	if (user_player != undefined && cpu_player !=undefined) {
+		reset_game();
+	}
+	if (this.innerHTML === 'Carmelo Anthony') {
 		player = this.innerHTML;
-		context = 'Point Guard - GSW #30';
+		context = 'Small Forward - NYK #7';
 		season = '2015-2016 Season';
-		img_src = 'images/scurry.png';
-		shot_a_pct = 0.50;
-		shot_b_pct = 0.45;
+		img_src = 'images/canthony.png';
+		shot_a_pct = 0.42;
+		shot_b_pct = 0.34;
+		cpu_shot_a_prob = 0.76;
+		cpu_shot_b_prob = 0.24;
 		var element = this;
 		user_or_cpu_display(element);
 	}
-	else if (this.innerHTML === 'Klay Thompson') {
+	else if (this.innerHTML === 'Chris Paul') {
 		player = this.innerHTML;
-		context = 'Shooting Guard - GSW #11';
-		season	= '2015-2016 Season';
-		img_src = 'images/kthompson.png';
-		shot_a_pct = 0.40;
-		shot_b_pct = 0.43;
+		context = 'Point Guard - LAC #3';
+		season = '2015-2016 Season';
+		img_src = 'images/cpaul.png';
+		shot_a_pct = 0.53;
+		shot_b_pct = 0.37;
+		cpu_shot_a_prob = 0.71;
+		cpu_shot_b_prob = 0.29;
 		var element = this;
 		user_or_cpu_display(element);
 	}
-	else if (this.innerHTML === 'LeBron James') {
-		player = this.innerHTML;		
-		context = 'Small Forward - CLE #23';
+	else if (this.innerHTML === 'Dirk Nowitzki') {
+		player = this.innerHTML;
+		context = 'Power Forward - DAL #41';
 		season = '2015-2016 Season';
-		img_src = 'images/ljames.png';
-		shot_a_pct = 0.54;
-		shot_b_pct = 0.30;
-		cpu_shot_a_prob = 0.75;
-		cpu_shot_b_prob = 0.25;
+		img_src = 'images/dnowitzki.png';
+		shot_a_pct = 0.48;
+		shot_b_pct = 0.37;
+		cpu_shot_a_prob = 0.69;
+		cpu_shot_b_prob = 0.31;
 		var element = this;
 		user_or_cpu_display(element);
 	}
-	else if (this.innerHTML === 'Kyrie Irving') {
+	else if (this.innerHTML === 'Dwyane Wade') {
 		player = this.innerHTML;
-		context = 'Point Guard - CLE #2';
+		context = 'Shooting Guard - MIA #3';
 		season = '2015-2016 Season';
-		img_src = 'images/kirving.png';		
+		img_src = 'images/dwade.png';
+		shot_a_pct = 0.34;
+		shot_b_pct = 0.16;
+		cpu_shot_a_prob = 0.96;
+		cpu_shot_b_prob = 0.04;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'James Harden') {
+		player = this.innerHTML;
+		context = 'Shooting Guard - HOU #13';
+		season = '2015-2016 Season';
+		img_src = 'images/jharden.png';
 		shot_a_pct = 0.43;
-		shot_b_pct = 0.38;
-		cpu_shot_a_prob = 0.65;
-		cpu_shot_b_prob = 0.35;
+		shot_b_pct = 0.36;
+		cpu_shot_a_prob = 0.59;
+		cpu_shot_b_prob = 0.41;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'John Wall') {
+		player = this.innerHTML;
+		context = 'Point Guard - WSH #2';
+		season = '2015-2016 Season';
+		img_src = 'images/jwall.png';
+		shot_a_pct = 0.37;
+		shot_b_pct = 0.35;
+		cpu_shot_a_prob = 0.76;
+		cpu_shot_b_prob = 0.24;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'Kobe Bryant') {
+		player = this.innerHTML;
+		context = 'Shooting Guard - LAL #24';
+		season = '2005-2006 Season';
+		img_src = 'images/kbryant.png';
+		shot_a_pct = 0.48;
+		shot_b_pct = 0.35;
+		cpu_shot_a_prob = 0.76;
+		cpu_shot_b_prob = 0.24;
 		var element = this;
 		user_or_cpu_display(element);
 	}
@@ -138,22 +206,58 @@ var select = function(){
 		context = 'Small Forward - OKC #35';
 		season = '2015-2016 Season';
 		img_src = 'images/kdurant.png';		
-		shot_a_pct = 0.45;
+		shot_a_pct = 0.54;
 		shot_b_pct = 0.39;
-		cpu_shot_a_prob = 0.55;
-		cpu_shot_b_prob = 0.45;
+		cpu_shot_a_prob = 0.65;
+		cpu_shot_b_prob = 0.35;
 		var element = this;
 		user_or_cpu_display(element);
 	}
-	else if (this.innerHTML === 'Russell Westbrook') {
+	else if (this.innerHTML === 'Kyrie Irving') {
 		player = this.innerHTML;
-		context = 'Point Guard - OKC #0';
+		context = 'Point Guard - CLE #2';
 		season = '2015-2016 Season';
-		img_src = 'images/rwestbrook.png';		
-		shot_a_pct = 0.41;
+		img_src = 'images/kirving.png';		
+		shot_a_pct = 0.50;
 		shot_b_pct = 0.32;
 		cpu_shot_a_prob = 0.70;
 		cpu_shot_b_prob = 0.30;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'Kawhi Leonard') {
+		player = this.innerHTML;
+		context = 'Small Forward - SAS #2';
+		season = '2015-2016 Season';
+		img_src = 'images/kleonard.png';		
+		shot_a_pct = 0.50;
+		shot_b_pct = 0.44;
+		cpu_shot_a_prob = 0.73;
+		cpu_shot_b_prob = 0.27;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'Klay Thompson') {
+		player = this.innerHTML;
+		context = 'Shooting Guard - GSW #11';
+		season	= '2015-2016 Season';
+		img_src = 'images/kthompson.png';
+		shot_a_pct = 0.42;
+		shot_b_pct = 0.43;
+		cpu_shot_a_prob = 0.53;
+		cpu_shot_b_prob = 0.47;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'LeBron James') {
+		player = this.innerHTML;		
+		context = 'Small Forward - CLE #23';
+		season = '2015-2016 Season';
+		img_src = 'images/ljames.png';
+		shot_a_pct = 0.34;
+		shot_b_pct = 0.31;
+		cpu_shot_a_prob = 0.80;
+		cpu_shot_b_prob = 0.20;
 		var element = this;
 		user_or_cpu_display(element);
 	}
@@ -162,15 +266,41 @@ var select = function(){
 		context = 'Small Forward - IND #13';
 		season = '2015-2016 Season';
 		img_src = 'images/pgeorge.png';		
-		shot_a_pct = 0.44;
-		shot_b_pct = 0.33;
-		cpu_shot_a_prob = 0.60;
-		cpu_shot_b_prob = 0.40;
+		shot_a_pct = 0.35;
+		shot_b_pct = 0.37;
+		cpu_shot_a_prob = 0.61;
+		cpu_shot_b_prob = 0.39;
 		var element = this;
 		user_or_cpu_display(element);
 	}
-	var user_result_area = document.getElementById('user_result');
-	clear(user_result_area);
+	else if (this.innerHTML === 'Russell Westbrook') {
+		player = this.innerHTML;
+		context = 'Point Guard - OKC #0';
+		season = '2015-2016 Season';
+		img_src = 'images/rwestbrook.png';		
+		shot_a_pct = 0.43;
+		shot_b_pct = 0.30;
+		cpu_shot_a_prob = 0.76;
+		cpu_shot_b_prob = 0.24;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	else if (this.innerHTML === 'Steph Curry') {
+		player = this.innerHTML;
+		context = 'Point Guard - GSW #30';
+		season = '2015-2016 Season';
+		img_src = 'images/scurry.png';
+		shot_a_pct = 0.45;
+		shot_b_pct = 0.45;
+		cpu_shot_a_prob = 0.45;
+		cpu_shot_b_prob = 0.55;
+		var element = this;
+		user_or_cpu_display(element);
+	}
+	var buttons = document.getElementsByClassName('shot_type');
+	if (buttons[0].classList.contains('disabled') === true) {
+		able();
+	}
 }
 
 //Shot Processing Function: Takes shot type and assigns values for this type of shot.
@@ -240,26 +370,19 @@ var cpu_shot_select = function() {
 var cpu_shot_outcome = function() {
 	var element = null;
 	shot_process(element, cpu_shot_select(), cpu_shot_a_pct, cpu_shot_b_pct);
-	var result_txt = document.createTextNode(shot_sim('cpu'));
-	var cpu_score = document.createTextNode(' '+cpu_player + ' has: ' + cpu_pts + ' points on ' + cpu_shots + ' shots.');
-	var cpu_result_area = document.getElementById('cpu_result');
-	clear(cpu_result_area);
-	cpu_result_area.appendChild(result_txt);
-	cpu_result_area.appendChild(cpu_score);
+	shot_sim('cpu');
+	display(cpu_pts, 'cpu_pts');
 }
 
 //Outcome Function: Runs shot_process, then shot_sim, then updates results in div below.
 var outcome = function() {
 	var element = this;
-	shot_process(element, this.innerHTML, user_shot_a_pct, user_shot_b_pct);
-	var result_txt = document.createTextNode(shot_sim('user'));
-	var user_score = document.createTextNode(" You've got: " + user_pts + " points on " + user_shots + " shots.")
-	var user_result_area = document.getElementById('user_result');
-	clear(user_result_area);
-	user_result_area.appendChild(result_txt);
-	user_result_area.appendChild(user_score);
-
-	cpu_shot_outcome();
+	if (element.classList.contains('disabled') != true) {
+		shot_process(element, this.innerHTML, user_shot_a_pct, user_shot_b_pct);
+		shot_sim('user');
+		display(user_pts, 'user_pts');
+		cpu_shot_outcome();
+	}
 }
 
 //Click Functions: 1) Player Selection, 2) Shot Simulator
