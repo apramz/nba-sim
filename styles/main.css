@@ -87,6 +87,30 @@ h3 {
 
 /***DROPDOWN MENU***/
 
+.pulse {
+	-webkit-animation-name: pulsate;
+	-webkit-animation-duration: 0.75s;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-filter:saturate(1.8);
+	-webkit-transition: filter 0.75s;
+	transition-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes pulsate {
+	0% { opacity: .75}
+	10% { opacity: .80}
+	20% { opacity: .85 }
+	30% { opacity: .90 }
+	40% { opacity: .95 } 
+	50% { opacity: 1.0}
+	60% { opacity: .95}
+	70% { opacity: .90}
+	80% { opacity: .85}
+	90% { opacity: .80}
+	100% { opacity: .75}
+}
+
 .user_cpu_dropdowns {
 	position: relative;
 	float: right;
@@ -160,10 +184,6 @@ h3 {
 
 .show {
 	display: block;
-}
-
-.shot_selection {
-
 }
 
 /***CONTENT***/
@@ -366,7 +386,7 @@ h3 {
 }
 
 .button p {
-	font-weight: 400;
+	font-weight: 500;
 	font-size: 13px;
 	margin-top: 5px;
 }
@@ -389,7 +409,7 @@ h3 {
 }
 
 .disabled {
-	opacity: 0.6;
+	opacity: 0.3;
 	cursor: not-allowed;
 }
 
@@ -418,11 +438,39 @@ h3 {
 
 .disabled:hover, img.disabled:active {
 	-webkit-filter:saturate(1);
+	width: inherit;
+	height: inherit;
+}
+
+.shot_type.disabled:hover {
 	width: 80%;
 	height: 80%;
 }
 
 /***RESULTS***/
+
+.shake {
+	-webkit-animation-name: shakeme;
+	-webkit-animation-duration: 1.5s;
+	-webkit-transform-origin:5% 5%;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+}
+
+@-webkit-keyframes shakeme {
+        0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+	40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+	50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+	70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+	80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+	90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+	100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+
 .results {
 	text-align: center;
 }
@@ -435,6 +483,7 @@ h3 {
 	    -moz-transform: skew(-11deg);
 	    	-o-transform: skew(-11deg);
 	display: inline-block;
+
 }
 
 #cpu_header {
@@ -469,18 +518,25 @@ table, tr, td {
 	border-collapse: collapse;
 }
 
-.blank {
-	border: none;
-}
-
 #user_player_table, #cpu_player_table {
 	background-color: #3A3A3A;
 	color: white;
 	font-family: 'Roboto';
-	font-weight: 400;
-	font-size: 20px;
+	font-weight: 600;
+	font-size: 18px;
 	padding: 8px;
 	min-height: 30px;
+	border-bottom: none;
+}
+
+#user_player_table {
+	background-color: #2980b9;
+	width: 177px;	
+}
+
+#cpu_player_table {
+	background-color: #F30000;
+	width: 177px;
 }
 
 td img {
@@ -497,6 +553,11 @@ td#user_player_table_img img, td#cpu_player_table_img img {
 	width: 140px;
 }
 
+.blank {
+	/*border-top-color: #FEFFFA;*/
+	border: none;
+}
+
 .points {
 	padding: 0;
 	overflow: hidden;
@@ -509,14 +570,22 @@ td#user_player_table_img img, td#cpu_player_table_img img {
 	font-weight: 300;
 	font-size: 20px;
 	position: relative;
-    bottom: 21px;
+    bottom: 15px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
 
 #user_pts, #cpu_pts {
-	font-size: 26px;
+	font-size: 37px;
 	font-weight: 600;
+}
+
+#user_pts {
+	color: #2980b9;
+}
+
+#cpu_pts {
+	color: #F30000;
 }
 
 .vs {
@@ -524,3 +593,43 @@ td#user_player_table_img img, td#cpu_player_table_img img {
 	font-weight: 600;
 	font-size: 20px;
 }
+
+.stat {
+	border-top: none; 
+	padding: 5px;
+}
+
+.stat_label {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 12px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-top: none;
+	font-style: italic;
+}
+
+.stat_detail {
+	font-size: 12px;
+}
+
+tr.stat td:hover {
+	color: white;
+	background-color: #3A3A3A;
+}
+/******************************
+			FOOTER
+******************************/
+
+.footer {
+	background-color: #C3C4C0;
+	height: 30px;
+	width: 100%;
+	position: absolute;
+	margin: 0;
+	left: 0;
+	bottom: 0;
+	clear: both;
+}
+
+

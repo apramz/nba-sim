@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="icon" href="images/ballfavi.png">
 		<link rel="stylesheet" href="styles/main.css">
-
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,600,100,300' rel='stylesheet' type='text/css'> 
 	</head>
 	<body>
 		<div class="header">
@@ -22,8 +22,8 @@
 		</div>
 		<div class='content'>
 			<div class='results'>
-				<table>
-					<tr>
+				<table class='blank'>
+					<tr class='blank'>
 						<td id='user_player_table'>PLAYER</td>
 						<td class='blank'></td>
 						<td class='blank'></td>
@@ -32,9 +32,11 @@
 						<td class='blank'></td>
 						<td id='cpu_player_table'>CPU</td>
 					</tr>
+				</table>
+				<table>
 					<tr>
 						<td id='user_player_table_img'><img src='images/off_w_placeholder.png'/></td>
-						<td><img src='images/basketball.png'/></td>
+						<td><img class='shake' src='images/basketball.png'/></td>
 						<td class='points'>
 							<div class='pt_label'>POINTS</div>
 							<div id='user_pts'>-</div>
@@ -44,16 +46,39 @@
 							<div class='pt_label'>POINTS</div>
 							<div id='cpu_pts'>-</div>
 						</td>
-						<td><img src='images/basketball.png'/></td>
+						<td><img class='shake' src='images/basketball.png'/></td>
 						<td id='cpu_player_table_img'><img src='images/off_w_placeholder.png'/></td>
+					</tr>
+				</table>
+				<table class='stat'>
+					<tr class='stat'>
+						<td class='stat'></td>
+						<td class='stat_label'>Field Goals Made (FGM)</td>
+						<td class='stat_label'>Field Goals Attempted (FGA)</td>
+						<td class='stat_label'>Field Goal Percentage (FG%)</td>
+						<td class='stat_label'>3 Pointer Percentage (3P%)</td>
+					</tr>
+					<tr class='stat'>
+						<td class='stat'>PLAYER</td>
+						<td id='user_makes' class='stat'>-</td>
+						<td id='user_shots' class='stat'>-</td>
+						<td id='user_fg%' class='stat'>-</td>
+						<td id='user_3p%' class='stat'>-</td>
+					</tr>
+					<tr class='stat'>
+						<td class='stat'>CPU</td>
+						<td id='cpu_makes' class='stat'>-</td>
+						<td id='cpu_shots' class='stat'>-</td>
+						<td id='cpu_fg%' class='stat'>-</td>
+						<td id='cpu_3p%' class='stat'>-</td>
 					</tr>
 				</table>
 			</div>
 			<div class='shot_selection'>
-				<div class='shot_header'>
+				<div class='shot_header disabled'>
 					<div class='arrows_header'>
 						<div class='section_header'><p>SHOT SELECTION</p></div>
-						<div class='arrows'>
+						<div id='test' class='arrows'>
 							<img src='images/arrows.png' />
 						</div>
 					</div>
@@ -61,7 +86,7 @@
 						<p>Choose your shot and the CPU will select its shot based on its season percentages.</p>
 					</div>
 				</div>
-				<div class='buttons'>
+				<div class='buttons disabled'>
 					<div class='button'><img class='shot_type shot_a disabled' src='images/midrange_jumper_btn_orng.png' /><p>Midrange Jumper</p></div>
 					<div class='button'><img class='shot_type shot_b disabled' src='images/three_pointer_btn_orng.png' /><p>Three Pointer</p></div>
 				</div>
@@ -70,7 +95,7 @@
 		</div>	
 		<div class='user_cpu_dropdowns'>
 				<div class="dropdown">
-					<button id="userDropBtn">CHOOSE PLAYER<img src='images/w_arrow.png'/></button>
+					<button id="userDropBtn" class='pulse'>CHOOSE PLAYER<img src='images/w_arrow.png'/></button>
 					<div id="userDropdown" class="dropdown-content">
 						<a href="#" class="player user">Carmelo Anthony</a>
 						<a href="#" class="player user">Chris Paul</a>
@@ -115,7 +140,7 @@
 					</div>
 				</div>
 				<div class="dropdown">
-					<button id="cpuDropBtn">CHOOSE CPU<img src='images/w_arrow.png'/></button>
+					<button id="cpuDropBtn" class='pulse'>CHOOSE CPU<img src='images/w_arrow.png'/></button>
 					<div id='cpuDropdown' class='dropdown-content'>
 						<a href="#" class="player cpu">Carmelo Anthony</a>
 						<a href="#" class="player cpu">Chris Paul</a>
@@ -160,7 +185,6 @@
 					</div>
 				</div>
 		</div>
-		<div style='clear:both'></div>
 		<script src="scripts/app.js"></script>
 	</body>
 </htmL>

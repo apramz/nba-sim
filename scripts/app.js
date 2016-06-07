@@ -15,6 +15,10 @@ var cpu_makes = 0;
 var cpu_misses = 0;
 var user_player;
 var cpu_player;
+var user_3p_makes = 0;
+var cpu_3p_makes = 0;
+var user_3p_shots = 0;
+var cpu_3p_shots = 0;
 
 //Div Clearing Function
 var clear = function(content_area) {
@@ -74,7 +78,7 @@ var user_or_cpu_display = function(element) {
 		user_shot_b_pct = shot_b_pct;
 		user_player = player;
 
-		display(player, 'user_player_table');
+		display(player.toUpperCase(), 'user_player_table');
 		img_display(img_src, 'user_player_table_img');
 	}
 	else if (element.classList.contains('cpu')) {
@@ -88,7 +92,7 @@ var user_or_cpu_display = function(element) {
 		cpu_shot_b_pct = shot_b_pct;
 		cpu_player = player;
 
-		display(player, 'cpu_player_table');
+		display(player.toUpperCase(), 'cpu_player_table');
 		img_display(img_src, 'cpu_player_table_img');
 	}
 }
@@ -98,8 +102,15 @@ var user_or_cpu_display = function(element) {
 var able = function() {
 	if (user_player != undefined && cpu_player != undefined) {
 		var buttons = document.getElementsByClassName('disabled');
-		buttons[0].className=buttons[0].className.replace( /(?:^|\s)disabled(?!\S)/g , '' );
-		buttons[0].className=buttons[0].className.replace( /(?:^|\s)disabled(?!\S)/g , '' );
+		buttons[0].classList.remove('disabled');
+		buttons[0].classList.remove('disabled');
+		buttons[0].classList.remove('disabled');
+		buttons[0].classList.remove('disabled');
+		var selectors = document.getElementsByClassName('pulse');
+		selectors[0].classList.remove('pulse');
+		selectors[0].classList.remove('pulse');
+		console.log(selectors);
+		document.getElementById('test').classList.add('pulse');
 	}
 }
 
@@ -340,10 +351,17 @@ var shot_sim = function(user_or_cpu) {
 		if (sim_shot <= shot_probability) {
 			user_pts = user_pts + shot_value;
 			user_makes = user_makes + 1;
+			if (shot_value === 3) {
+				user_3p_makes = user_3p_makes + 1;
+				user_3p_shots = user_3p_shots +1;
+			}
 			return "Swoosh!";
 		}
 		else {
 			user_misses = user_misses +1;
+			if (shot_value === 3) {
+				user_3p_shots = user_3p_shots +1;
+			}
 			return "Brick!";
 		}
 	}
@@ -352,10 +370,17 @@ var shot_sim = function(user_or_cpu) {
 		if (sim_shot <= shot_probability) {
 			cpu_pts = cpu_pts + shot_value;
 			cpu_makes = cpu_makes + 1;
+			if (shot_value === 3) {
+				cpu_3p_makes = cpu_3p_makes + 1;
+				cpu_3p_shots = cpu_3p_shots +1;
+			}
 			return "Swoosh!";
 		}
 		else {
 			cpu_misses = cpu_misses +1;
+			if (shot_value === 3) {
+				cpu_3p_shots = cpu_3p_shots +1;
+			}
 			return "Brick!";
 		}
 	}
@@ -378,6 +403,10 @@ var cpu_shot_outcome = function() {
 	shot_process(element, cpu_shot_select(), cpu_shot_a_pct, cpu_shot_b_pct);
 	shot_sim('cpu');
 	display(cpu_pts, 'cpu_pts');
+	display(cpu_makes, 'cpu_makes');
+	display(cpu_shots, 'cpu_shots');
+	display((((cpu_makes/cpu_shots).toFixed(2)*100)).toFixed(0)+'%', 'cpu_fg%');
+	display((((cpu_3p_makes/cpu_3p_shots).toFixed(2)*100)).toFixed(0)+'%', 'cpu_3p%');
 }
 
 //Outcome Function: Runs shot_process, then shot_sim, then updates results in div below.
@@ -387,6 +416,10 @@ var outcome = function() {
 		shot_process(element, this.innerHTML, user_shot_a_pct, user_shot_b_pct);
 		shot_sim('user');
 		display(user_pts, 'user_pts');
+		display(user_makes, 'user_makes');
+		display(user_shots, 'user_shots');
+		display((((user_makes/user_shots).toFixed(2)*100)).toFixed(0)+'%', 'user_fg%');
+		display((((user_3p_makes/user_3p_shots).toFixed(2)*100)).toFixed(0)+'%', 'user_3p%');
 		cpu_shot_outcome();
 	}
 }
