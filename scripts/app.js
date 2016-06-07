@@ -73,6 +73,9 @@ var user_or_cpu_display = function(element) {
 		user_shot_a_pct = shot_a_pct;
 		user_shot_b_pct = shot_b_pct;
 		user_player = player;
+
+		display(player, 'user_player_table');
+		img_display(img_src, 'user_player_table_img');
 	}
 	else if (element.classList.contains('cpu')) {
 		display(player, 'cpu_player');
@@ -84,6 +87,9 @@ var user_or_cpu_display = function(element) {
 		cpu_shot_a_pct = shot_a_pct;
 		cpu_shot_b_pct = shot_b_pct;
 		cpu_player = player;
+
+		display(player, 'cpu_player_table');
+		img_display(img_src, 'cpu_player_table_img');
 	}
 }
 
