@@ -1,4 +1,7 @@
-/***BODY***/
+/******************************
+			BODY
+******************************/
+
 body {
 	font-family: 'Roboto';
 	font-weight: 400;
@@ -9,7 +12,10 @@ body {
 	background-color: #fefffa;
 }
 
-/***HEADER***/
+/******************************
+			HEADER
+******************************/
+
 .header {
 	clear: both;
 }
@@ -85,7 +91,9 @@ h3 {
 	margin: 0;
 }
 
-/***DROPDOWN MENU***/
+/******************************
+		DROPDOWN MENU
+******************************/
 
 .pulse {
 	-webkit-animation-name: pulsate;
@@ -167,6 +175,7 @@ h3 {
 	max-height: 135px;
 	box-shadow: 3px 3px 3px #888888;
 	border-radius: 2px;
+	transition: all 0.4s ease-in-out;	
 }
 
 .dropdown-content a {
@@ -186,14 +195,19 @@ h3 {
 	display: block;
 }
 
-/***CONTENT***/
+/******************************
+			CONTENT
+******************************/
+
 .content {
 	float: right;
 	width: 80%;
 
 }
 
-/***STATS***/
+/******************************
+			STATS
+******************************/
 
 #user_stats {
 	width: 248px;
@@ -320,7 +334,23 @@ h3 {
 	border-color: #F30000;	
 }
 
-/***SHOT SELECTION***/
+/******************************
+		SHOT SELECTION
+******************************/
+
+.bnf {-webkit-animation-name: shake;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	transition: all 0.1s ease-in-out;
+}
+
+@-webkit-keyframes shake {
+    0% { -webkit-transform: translate(-5px, 0px); }
+	50% { -webkit-transform: translate(5px, 0px); }
+	100% { -webkit-transform: translate(-5px, 0px); }
+}
+
 .shot_selection {
 	text-align: center;
 	display: block;
@@ -447,7 +477,31 @@ h3 {
 	height: 80%;
 }
 
-/***RESULTS***/
+/******************************
+			RESULTS
+******************************/
+
+.rattle {
+	-webkit-animation-name: rattle;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	transition: all 0.1s ease-in-out;
+}
+
+@-webkit-keyframes rattle {
+    0% { -webkit-transform: rotate(-3deg); }
+	10% { -webkit-transform: rotate(-2deg); }
+	20% { -webkit-transform: rotate(-1deg); }
+	30% { -webkit-transform: rotate(0deg); }
+	40% { -webkit-transform: rotate(1deg); }
+	50% { -webkit-transform: rotate(2deg); }
+	60% { -webkit-transform: rotate(3deg); }
+	70% { -webkit-transform: rotate(2deg); }
+	80% { -webkit-transform: rotate(1deg); }
+	90% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(-3deg); }
+}
 
 .shake {
 	-webkit-animation-name: shakeme;
@@ -458,7 +512,7 @@ h3 {
 }
 
 @-webkit-keyframes shakeme {
-        0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
 	10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
 	20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
 	30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
@@ -568,11 +622,11 @@ td#user_player_table_img img, td#cpu_player_table_img img {
 	color: white;
 	font-family: 'Roboto';
 	font-weight: 300;
-	font-size: 20px;
+	font-size: 18px;
 	position: relative;
     bottom: 15px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 10px;
+	padding-bottom: 8px;
 }
 
 #user_pts, #cpu_pts {
@@ -597,6 +651,7 @@ td#user_player_table_img img, td#cpu_player_table_img img {
 .stat {
 	border-top: none; 
 	padding: 5px;
+	font-size: 14px;
 }
 
 .stat_label {
@@ -616,6 +671,7 @@ td#user_player_table_img img, td#cpu_player_table_img img {
 tr.stat td:hover {
 	color: white;
 	background-color: #3A3A3A;
+	transition: all 0.1s ease-in-out;
 }
 /******************************
 			FOOTER

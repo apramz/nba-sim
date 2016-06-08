@@ -111,6 +111,7 @@ var able = function() {
 		selectors[0].classList.remove('pulse');
 		console.log(selectors);
 		document.getElementById('test').classList.add('pulse');
+		document.getElementById('test').classList.add('bnf');
 	}
 }
 
@@ -122,11 +123,25 @@ var reset_game = function() {
 	user_shots = 0;
 	user_makes = 0;
 	user_misses =0;
+	user_3p_shots=0;
+	user_3p_makes=0;
 	cpu_shots =0;
 	cpu_makes =0;
 	cpu_misses =0;
+	cpu_3p_shots=0;
+	cpu_3p_makes=0;
+
 	display(user_pts, 'user_pts');
 	display(cpu_pts, 'cpu_pts');
+	display(user_makes, 'user_makes');
+	display(user_shots, 'user_shots');
+	display((((user_makes/user_shots).toFixed(2)*100)).toFixed(0)+'%', 'user_fg%');
+	display((((user_3p_makes/user_3p_shots).toFixed(2)*100)).toFixed(0)+'%', 'user_3p%');
+
+	display(cpu_makes, 'cpu_makes');
+	display(cpu_shots, 'cpu_shots');
+	display((((cpu_makes/cpu_shots).toFixed(2)*100)).toFixed(0)+'%', 'cpu_fg%');
+	display((((cpu_3p_makes/cpu_3p_shots).toFixed(2)*100)).toFixed(0)+'%', 'cpu_3p%');
 }
 
 //Player Selection Function
@@ -270,7 +285,7 @@ var select = function(){
 		player = this.innerHTML;		
 		context = 'Small Forward - CLE #23';
 		season = '2015-2016 Season';
-		img_src = 'images/ljames.png';
+		img_src = 'images/logos/ljames.png';
 		shot_a_pct = 0.34;
 		shot_b_pct = 0.31;
 		cpu_shot_a_prob = 0.80;
