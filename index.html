@@ -6,6 +6,7 @@
 		<link rel="icon" href="images/ballfavi.png">
 		<link rel="stylesheet" href="styles/main.css">
 		<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,600,100,300' rel='stylesheet' type='text/css'> 
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:800' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
 		<div class="header">
@@ -22,6 +23,20 @@
 		</div>
 		<div class='content'>
 			<div class='results'>
+				<table class='goals'>
+					<tr>
+						<td class='goal_header'>GOAL</td>
+						<td colspan='2' id='goal' class='goal'>Win 1 game</td>
+						<td>
+							<div class='streak_label'>User Win Streak</div>
+							<div id='user_winstreak' class='streak_ct'>-</div>							
+						</td>
+						<td>
+							<div class='streak_label'>CPU Win Streak</div>
+							<div id='cpu_winstreak' class='streak_ct'>-</div>
+						</td>
+					</tr>
+				</table>
 				<table class='blank'>
 					<tr class='blank'>
 						<td id='user_player_table'>PLAYER</td>

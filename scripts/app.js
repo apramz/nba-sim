@@ -19,6 +19,9 @@ var user_3p_makes = 0;
 var cpu_3p_makes = 0;
 var user_3p_shots = 0;
 var cpu_3p_shots = 0;
+var wins = 0;
+var user_winstreak = 0;
+var cpu_winstreak = 0;
 
 //Div Clearing Function
 var clear = function(content_area) {
@@ -109,7 +112,6 @@ var able = function() {
 		var selectors = document.getElementsByClassName('pulse');
 		selectors[0].classList.remove('pulse');
 		selectors[0].classList.remove('pulse');
-		console.log(selectors);
 		document.getElementById('test').classList.add('pulse');
 		document.getElementById('test').classList.add('bnf');
 	}
@@ -285,7 +287,7 @@ var select = function(){
 		player = this.innerHTML;		
 		context = 'Small Forward - CLE #23';
 		season = '2015-2016 Season';
-		img_src = 'images/logos/ljames.png';
+		img_src = 'images/ljames.png';
 		shot_a_pct = 0.34;
 		shot_b_pct = 0.31;
 		cpu_shot_a_prob = 0.80;
@@ -412,6 +414,41 @@ var cpu_shot_select = function() {
 	}
 }
 
+//Goal Decider Function
+var goal_decide = function() {
+	if (user_winstreak === 0) {
+		return 'Win 1 game';
+	}
+	else if (user_winstreak >=1 && user_winstreak < 3) {
+		return 'Win 3 games in a row';
+	}
+	else if (user_winstreak > 3) {
+		return 'Win 7 games in a row';
+	}
+}
+
+//Game Decider Function
+var game_decide = function() {
+	if (user_pts>=21) {
+		reset_game();
+		user_winstreak = user_winstreak + 1;
+		cpu_winstreak = 0;
+		display(user_winstreak, 'user_winstreak');
+		display(cpu_winstreak, 'cpu_winstreak');
+		display(goal_decide(), 'goal');
+		return 'You won!';
+	}
+	else if (cpu_pts >=21) {
+		reset_game();
+		cpu_winstreak = cpu_winstreak + 1;
+		user_winstreak = 0;
+		display(user_winstreak, 'user_winstreak');
+		display(cpu_winstreak, 'cpu_winstreak');
+		display(goal_decide(), 'goal');
+		return cpu_player + ' won!';
+	}
+}
+
 //CPU Shot Outcome Function
 var cpu_shot_outcome = function() {
 	var element = null;
@@ -436,6 +473,7 @@ var outcome = function() {
 		display((((user_makes/user_shots).toFixed(2)*100)).toFixed(0)+'%', 'user_fg%');
 		display((((user_3p_makes/user_3p_shots).toFixed(2)*100)).toFixed(0)+'%', 'user_3p%');
 		cpu_shot_outcome();
+		game_decide();
 	}
 }
 
