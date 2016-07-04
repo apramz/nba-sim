@@ -422,7 +422,7 @@ var goal_decide = function() {
 	else if (user_winstreak >=1 && user_winstreak < 3) {
 		return 'Win 3 games in a row';
 	}
-	else if (user_winstreak > 3) {
+	else if (user_winstreak >= 3) {
 		return 'Win 7 games in a row';
 	}
 }
